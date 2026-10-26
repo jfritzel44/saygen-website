@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import DownloadButtons from "../components/DownloadButtons";
 import FormulaBackdrop from "../components/FormulaBackdrop";
-import { mathsynth } from "../site";
+import { families, functions, mathsynth } from "../site";
 
 const sections = [
   { id: "overview", label: "Overview" },
+  { id: "functions", label: "Functions" },
   { id: "videos", label: "Videos" },
   { id: "download", label: "Download" },
 ];
@@ -124,7 +125,32 @@ export default function MathSynth() {
         </div>
       </section>
 
-      <section id="videos" className="section alt">
+      <section id="functions" className="section alt">
+        <div className="section-inner">
+          <h2>Thirteen functions, thirteen mathematicians</h2>
+          <p className="section-lead">
+            In wheel order. Each function becomes a single-cycle wave: a curve plays its shape, a sequence plays its terms
+            as steps. The Math knob changes each one's constant.
+          </p>
+          <div className="function-grid">
+            {functions.map((fn) => (
+              <article key={fn.name} className="function-card" style={{ "--family": families[fn.family].colour } as CSSProperties}>
+                <header>
+                  <img src={`/media/portraits/${fn.portrait}.png`} alt="" loading="lazy" />
+                  <div>
+                    <h3>{fn.name}</h3>
+                    <p className="function-credit">{fn.credit} · {families[fn.family].label}</p>
+                  </div>
+                </header>
+                <p className="function-formula">{fn.formula}</p>
+                <p>{fn.about}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="videos" className="section">
         <div className="section-inner">
           <h2>Videos</h2>
           <p className="section-lead">More on Instagram at <a href="https://www.instagram.com/saygen.audio/" target="_blank" rel="noreferrer">@saygen.audio</a>.</p>

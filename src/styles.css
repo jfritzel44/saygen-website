@@ -268,6 +268,16 @@ a.featured:hover { border-color: var(--accent); text-decoration: none; transform
 .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .feature { background: var(--panel); border: 1px solid var(--outline); border-radius: 12px; padding: 24px; }
 .feature p { color: var(--dim); margin: 0; }
+
+/* MathSynth's functions, each card in its family's colour (--family) */
+.function-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); gap: 16px; }
+.function-card { background: var(--panel); border: 1px solid var(--outline); border-top: 3px solid var(--family); border-radius: 12px; padding: 20px 22px; }
+.function-card header { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.function-card img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--family); flex: none; }
+.function-card h3 { margin: 0; color: var(--family); }
+.function-card .function-credit { margin: 0; color: var(--dim); font-size: 0.85rem; }
+.function-card .function-formula { font-family: "Times New Roman", Georgia, serif; font-style: italic; font-size: 1.15rem; margin: 0 0 10px; overflow-wrap: anywhere; }
+.function-card p:last-child { color: var(--dim); margin: 0; font-size: 0.95rem; }
 .screenshots { display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); justify-content: center; gap: 40px; margin-top: 64px; }
 .screenshots img { border-radius: 14px; border: 1px solid var(--outline); box-shadow: 0 20px 60px rgb(0 0 0 / 60%); }
 figcaption { color: var(--dim); font-size: 0.9rem; text-align: center; margin-top: 12px; }

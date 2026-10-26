@@ -8,7 +8,7 @@ const stories = [
   {
     title: "Fibonacci sounds hot",
     date: "October 2026",
-    text: "The Fibonacci sequence, wrapped around a modulus, turned into a waveform you can play.",
+    text: "Check out this video to hear the creator play a synth solo using MathSynth.",
     image: "/media/mathsynth-1.jpg",
     imageClass: "scope",
     to: "/instruments/mathsynth#videos",
@@ -18,7 +18,7 @@ const stories = [
     date: "October 2026",
     text: "Fibonacci, Collatz, Gödel, Erdős and more on one wheel, each with its inventor's portrait.",
     portraits: true,
-    to: "/instruments/mathsynth",
+    to: "/instruments/mathsynth#functions",
   },
 ];
 
