@@ -26,7 +26,7 @@ redirect there, in `vercel.json`), connected to
 [jfritzel44/saygen-website](https://github.com/jfritzel44/saygen-website): every push to `main`
 deploys to production, and other branches get preview links. `vercel.json` sends every page route
 to `index.html` so deep links work.
-
-## Still to do
-
-- Email capture before downloads (launch/PLAN.md).
+- Downloads ask for an email first (`emailGate` in `site.ts`): `api/subscribe.ts` adds it to the
+  product's MailerLite group, whose automation emails the links. It needs `MAILERLITE_API_KEY` and
+  `MAILERLITE_GROUP_<PRODUCT>` in the Vercel project's environment variables. If MailerLite fails,
+  the download starts anyway.

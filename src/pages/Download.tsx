@@ -88,6 +88,7 @@ function DownloadPage({ instrument, platform }: { instrument: Instrument; platfo
         <p className="small-print">
           You'll also get occasional emails about new Saygen instruments. Unsubscribe any time. <Link to="/privacy">Privacy</Link>.
         </p>
+        <DonateCard instrument={instrument} />
       </Page>
     );
   }
@@ -110,22 +111,7 @@ function DownloadPage({ instrument, platform }: { instrument: Instrument; platfo
         </>
       )}
 
-      {site.donateUrl && (
-        <div className="donate-card">
-          <h2>Keep it free</h2>
-          <p>
-            {instrument.name} is free, with no license key. If you enjoy it, a donation of any amount helps fund the next
-            Saygen instrument.
-          </p>
-          <p className="donate-how">
-            Donations go through Stripe's secure checkout: choose an amount, then pay by card, Apple Pay or Google Pay.
-            No account needed, and Saygen never sees your card details.
-          </p>
-          <a className="button donate" href={site.donateUrl} target="_blank" rel="noreferrer">
-            <HeartIcon /> Donate with Stripe
-          </a>
-        </div>
-      )}
+      <DonateCard instrument={instrument} />
 
       <h2>Installing</h2>
       {platform === "mac" ? (
@@ -155,6 +141,27 @@ function DownloadPage({ instrument, platform }: { instrument: Instrument; platfo
         <Link to={`/download/${instrument.slug}/${platform === "mac" ? "windows" : "mac"}`}>Download for {platform === "mac" ? "Windows" : "Mac"}</Link>.
       </p>
     </Page>
+  );
+}
+
+// On both the email step and the thank-you page; hidden while donateUrl is empty.
+function DonateCard({ instrument }: { instrument: Instrument }) {
+  if (!site.donateUrl) return null;
+  return (
+    <div className="donate-card">
+      <h2>Keep it free</h2>
+      <p>
+        {instrument.name} is free, with no license key. If you enjoy it, a donation of any amount helps fund the next
+        Saygen instrument.
+      </p>
+      <p className="donate-how">
+        Donations go through Stripe's secure checkout: choose an amount, then pay by card, Apple Pay or Google Pay.
+        No account needed, and Saygen never sees your card details.
+      </p>
+      <a className="button donate" href={site.donateUrl} target="_blank" rel="noreferrer">
+        <HeartIcon /> Donate with Stripe
+      </a>
+    </div>
   );
 }
 
