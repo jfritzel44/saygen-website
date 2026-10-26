@@ -5,9 +5,8 @@ export const site = {
   instagram: { handle: "@saygen.audio", url: "https://www.instagram.com/saygen.audio/" },
   contactEmail: "jafritzel@gmail.com",
   // Donate button, shown next to every download button; hidden while empty.
-  // TODO: the real link (a Stripe Payment Link with "customer chooses amount",
-  // Ko-fi, or PayPal).
-  donateUrl: "",
+  // Stripe Payment Link "Support Saygen" (customer chooses the amount).
+  donateUrl: "https://buy.stripe.com/00w6oA0AgadafHcdNv67S01",
 };
 
 export type Instrument = {

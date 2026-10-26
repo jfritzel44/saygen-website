@@ -29,5 +29,4 @@ to `index.html` so deep links work.
 
 ## Still to do
 
-- Real donate link in `src/site.ts`.
 - Email capture before downloads (launch/PLAN.md).
