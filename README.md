@@ -21,8 +21,10 @@ npm run build     # static site in dist/
   `donateUrl`, and is hidden while it's empty.
 - The home page hero's animated background is `src/components/WaveField.tsx`.
 
-Deploy on Vercel: import the folder, framework preset Vite. `vercel.json` sends every page
-route to `index.html` so deep links work.
+Deployed on Vercel (project `saygen`, https://saygen.vercel.app), connected to
+[jfritzel44/saygen-website](https://github.com/jfritzel44/saygen-website): every push to `main`
+deploys to production, and other branches get preview links. `vercel.json` sends every page route
+to `index.html` so deep links work.
 
 ## Still to do
 
