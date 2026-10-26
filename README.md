@@ -1,0 +1,30 @@
+# SayGen website
+
+React + TypeScript + Vite. Dark theme in MathSynth's colours (`src/styles.css`).
+
+```sh
+npm install
+npm run dev       # http://localhost:5173
+npm run build     # static site in dist/
+```
+
+- `src/site.ts`: links, contact email, donate link, MathSynth's version and download links, its functions
+  and presets. Most edits start here.
+- `src/pages/`: Home, MathSynth (`/instruments/mathsynth`), Support, About.
+- `src/components/Header.tsx`: the Instruments dropdown lists `instruments` from `site.ts`, so a
+  new product is one entry there plus its page and route (`src/App.tsx`).
+- `public/media/`: logo, screenshots, portraits, cropped videos and audio demos.
+- Downloads link to the newest installers in the public
+  [saygen-releases](https://github.com/jfritzel44/saygen-releases) repo (`mathsynth-latest`), so
+  they never need changing; bump `version` in `site.ts` after each release (it's only the label).
+  The Donate button next to each download (`src/components/DownloadButtons.tsx`) opens
+  `donateUrl`, and is hidden while it's empty.
+- The home page hero's animated background is `src/components/WaveField.tsx`.
+
+Deploy on Vercel: import the folder, framework preset Vite. `vercel.json` sends every page
+route to `index.html` so deep links work.
+
+## Still to do
+
+- Real donate link in `src/site.ts`.
+- Email capture before downloads (launch/PLAN.md).
