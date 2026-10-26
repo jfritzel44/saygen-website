@@ -32,7 +32,7 @@ export default function Home() {
             <p className="eyebrow">New instrument · free for Mac and Windows</p>
             <h1>MathSynth</h1>
             <p className="lead">
-              Get ready to vibe. This math is hot. Fibonacci is on fire and Euler rips. Download MathSynth today.
+              Get ready to vibe. This math is hot. 🔥 Fibonacci is on fire and Euler rips. Download MathSynth today.
             </p>
             <DownloadButtons instrument={mathsynth} />
             <Link className="text-link" to="/instruments/mathsynth">Learn more about MathSynth →</Link>
