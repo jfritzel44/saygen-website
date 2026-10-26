@@ -101,7 +101,7 @@ export default function Home() {
             MathSynth is free, with no account or license key. If it ends up in your music, a donation of any size helps
             fund the next Saygen instrument.
           </p>
-          <DownloadButtons instrument={mathsynth} layout="both" />
+          <DownloadButtons instrument={mathsynth} />
           <p className="small-print">
             Mac: macOS 11 or later, Apple silicon and Intel, AU, VST3 and standalone. Windows: 10 or 11, 64-bit, VST3 and
             standalone. Help installing: <Link to="/support">Support</Link>.

@@ -77,7 +77,7 @@ export default function MathSynth() {
             <p className="eyebrow">Synthesizer · AU · VST3 · Standalone</p>
             <h1>MathSynth</h1>
             <p className="lead">{mathsynth.tagline} Pick a function on the wheel, from Fibonacci to the logistic map, and its values become the waveform you hear.</p>
-            <DownloadButtons instrument={mathsynth} layout="both" />
+            <DownloadButtons instrument={mathsynth} />
             <p className="hero-note requirements">macOS 11 or later, Apple silicon and Intel · Windows 10 or 11, 64-bit</p>
             <a className="text-link" href="#videos">Watch it play →</a>
           </div>

@@ -1,19 +1,12 @@
-import { useMemo, type CSSProperties } from "react";
+import type { CSSProperties } from "react";
 import { site, type Instrument } from "../site";
 
 type Platform = "mac" | "windows";
 const platformNames: Record<Platform, string> = { mac: "Mac", windows: "Windows" };
 
-function detectPlatform(): Platform {
-  return /Win/i.test(navigator.userAgent) ? "windows" : "mac";
-}
-
-// Download and Donate side by side. "auto" offers the visitor's own platform
-// first with a link to the other; "both" shows a button for each.
-export default function DownloadButtons({ instrument, layout = "auto" }: { instrument: Instrument; layout?: "auto" | "both" }) {
-  const platform = useMemo(detectPlatform, []);
-  const other: Platform = platform === "mac" ? "windows" : "mac";
-  const platforms: Platform[] = layout === "both" ? ["mac", "windows"] : [platform];
+// A download button for each platform, then Donate.
+export default function DownloadButtons({ instrument }: { instrument: Instrument }) {
+  const platforms: Platform[] = ["mac", "windows"];
 
   return (
     <div className="download-buttons" style={{ "--product": instrument.colour } as CSSProperties}>
@@ -29,12 +22,7 @@ export default function DownloadButtons({ instrument, layout = "auto" }: { instr
           </a>
         )}
       </div>
-      <p className="hero-note">
-        Free · version {instrument.version}
-        {layout === "auto" && (
-          <> · also for <a href={instrument.downloads[other]} download>{platformNames[other]}</a></>
-        )}
-      </p>
+      <p className="hero-note">Free · version {instrument.version}</p>
     </div>
   );
 }
