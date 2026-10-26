@@ -39,7 +39,7 @@ export const mathsynth: Instrument = {
   tagline: "A synthesizer that plays math.",
   price: "Free",
   image: "/media/mathsynth/wheel.png",
-  version: "0.1.2",
+  version: "0.1.3",
   colour: "#d64fff",  // the fractal purple it opens with (Weierstrass)
   macNotarized: false,  // true once the release workflow signs and notarizes
   downloads: releaseDownloads("mathsynth", "MathSynth"),
