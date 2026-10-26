@@ -1,7 +1,7 @@
 // Everything that changes per release or per account lives here.
 
 export const site = {
-  name: "SayGen",
+  name: "Saygen",
   instagram: { handle: "@saygen.audio", url: "https://www.instagram.com/saygen.audio/" },
   contactEmail: "jafritzel@gmail.com",
   // Donate button, shown next to every download button; hidden while empty.
@@ -17,7 +17,7 @@ export type Instrument = {
   price: string;
   image: string;
   version: string;
-  colour: string;  // its download buttons; the site's chrome stays SayGen silver
+  colour: string;  // its download buttons; the site's chrome stays Saygen silver
   downloads: { mac: string; windows: string };
 };
 
@@ -26,7 +26,7 @@ export type Instrument = {
 // these links never change. Bump each instrument's version after a release
 // (it's only the label under the buttons).
 function releaseDownloads(slug: string, product: string) {
-  const base = `https://github.com/jfritzel44/saygen-releases/releases/download/${slug}-latest/SayGen-${product}`;
+  const base = `https://github.com/jfritzel44/saygen-releases/releases/download/${slug}-latest/Saygen-${product}`;
   return { mac: `${base}-mac.pkg`, windows: `${base}-windows.exe` };
 }
 

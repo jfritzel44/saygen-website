@@ -99,7 +99,7 @@ export default function Home() {
           <h2>Free to download. Kept going by you.</h2>
           <p className="section-lead">
             MathSynth is free, with no account or license key. If it ends up in your music, a donation of any size helps
-            fund the next SayGen instrument.
+            fund the next Saygen instrument.
           </p>
           <DownloadButtons instrument={mathsynth} layout="both" />
           <p className="small-print">

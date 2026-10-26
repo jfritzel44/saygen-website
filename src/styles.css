@@ -1,4 +1,4 @@
-/* SayGen site. Colours follow MathSynth's theme (MathSynth/Source/UI/Theme.h). */
+/* Saygen site. Colours follow MathSynth's theme (MathSynth/Source/UI/Theme.h). */
 
 @font-face { font-family: "Figtree"; src: url("/fonts/Figtree-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
 @font-face { font-family: "Inter"; src: url("/fonts/Inter-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
@@ -11,7 +11,7 @@
   --outline: #2a2e3a;
   --text: #e8e9ee;
   --dim: #8a8f9e;
-  --accent: #c0c0c0;  /* SayGen brand silver: CSS's named "silver", to go with the chrome logo */
+  --accent: #c0c0c0;  /* Saygen brand silver: CSS's named "silver", to go with the chrome logo */
   --accent-rgb: 192 192 192;
   --accent-text: #07080c;
   --analytic: #3fd0ff;

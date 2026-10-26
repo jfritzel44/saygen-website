@@ -29,8 +29,8 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="header-inner">
-        <Link to="/" className="logo" aria-label="SayGen home">
-          <img src="/media/saygen-logo-chrome.png" alt="SayGen" />
+        <Link to="/" className="logo" aria-label="Saygen home">
+          <img src="/media/saygen-logo-chrome.png" alt="Saygen" />
         </Link>
 
         <button className="menu-toggle" aria-expanded={menuOpen} aria-label="Menu" onClick={() => setMenuOpen(!menuOpen)}>

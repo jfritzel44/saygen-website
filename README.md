@@ -1,4 +1,4 @@
-# SayGen website
+# Saygen website
 
 React + TypeScript + Vite. Dark theme in MathSynth's colours (`src/styles.css`).
 

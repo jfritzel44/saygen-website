@@ -3,16 +3,16 @@ import { site } from "../site";
 
 export default function About() {
   useEffect(() => {
-    document.title = "About · SayGen";
-    return () => { document.title = "SayGen"; };
+    document.title = "About · Saygen";
+    return () => { document.title = "Saygen"; };
   }, []);
 
   return (
     <section className="section page">
       <div className="section-inner narrow">
-        <h1>About SayGen</h1>
+        <h1>About Saygen</h1>
         <p className="section-lead">
-          SayGen is a small, independent audio company making instruments and effects plugins for Mac and Windows.
+          Saygen is a small, independent audio company making instruments and effects plugins for Mac and Windows.
         </p>
         <p>
           MathSynth is the first one out: a synth built around a simple question, what does mathematics sound like?

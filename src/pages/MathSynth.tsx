@@ -64,8 +64,8 @@ export default function MathSynth() {
   const active = useActiveSection();
 
   useEffect(() => {
-    document.title = "MathSynth · SayGen";
-    return () => { document.title = "SayGen"; };
+    document.title = "MathSynth · Saygen";
+    return () => { document.title = "Saygen"; };
   }, []);
 
   return (

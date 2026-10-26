@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-inner">
-        <img src="/media/saygen-logo-chrome.png" alt="SayGen" className="footer-logo" />
+        <img src="/media/saygen-logo-chrome.png" alt="Saygen" className="footer-logo" />
         <nav aria-label="Footer">
           <Link to="/instruments/mathsynth">MathSynth</Link>
           <Link to="/support">Support</Link>
@@ -14,7 +14,7 @@ export default function Footer() {
           <a href={`mailto:${site.contactEmail}`}>Contact</a>
         </nav>
         <p className="fine-print">
-          © {new Date().getFullYear()} SayGen. VST is a trademark of Steinberg Media Technologies GmbH.
+          © {new Date().getFullYear()} Saygen. VST is a trademark of Steinberg Media Technologies GmbH.
           Audio Units is a trademark of Apple Inc.
         </p>
       </div>
