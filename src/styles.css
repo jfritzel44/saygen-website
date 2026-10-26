@@ -275,6 +275,12 @@ a.featured:hover { border-color: var(--accent); text-decoration: none; transform
 .donate-card { background: var(--panel); border: 1px solid var(--outline); border-top: 3px solid var(--product, var(--accent)); border-radius: 12px; padding: 28px; margin: 8px 0 12px; }
 .donate-card h2 { margin-top: 0; }
 .donate-card .donate-how { color: var(--dim); font-size: 0.95rem; }
+.email-form { display: flex; flex-wrap: wrap; gap: 12px; margin: 8px 0 4px; }
+.email-form input { flex: 1 1 260px; min-width: 0; font: inherit; color: var(--text); background: var(--panel); border: 1px solid var(--outline); border-radius: 999px; padding: 0.8em 1.2em; }
+.email-form input:focus { outline: none; border-color: var(--product, var(--accent)); }
+.email-form .button { flex: 0 0 auto; }
+.email-form .button:disabled { opacity: 0.6; cursor: wait; }
+.form-error { color: var(--chaos); margin: 8px 0 0; }
 .install-steps { padding-left: 1.3em; }
 .install-steps li { margin-bottom: 0.6em; }
 

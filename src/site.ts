@@ -7,6 +7,9 @@ export const site = {
   // Donate button, shown next to every download button; hidden while empty.
   // Stripe Payment Link "Support Saygen" (customer chooses the amount).
   donateUrl: "https://buy.stripe.com/00w6oA0AgadafHcdNv67S01",
+  // Ask for an email before downloading (pages/Download.tsx, api/subscribe.ts).
+  // Turn on once MailerLite and its Vercel environment variables are set up.
+  emailGate: false,
 };
 
 export type Instrument = {

@@ -3,5 +3,5 @@
     { "source": "/:path*", "has": [{ "type": "host", "value": "www.saygenaudio.com" }], "destination": "https://saygenaudio.com/:path*", "permanent": true },
     { "source": "/:path*", "has": [{ "type": "host", "value": "saygen.vercel.app" }], "destination": "https://saygenaudio.com/:path*", "permanent": true }
   ],
-  "rewrites": [{ "source": "/((?!media/|fonts/|assets/|mathsynth/).*)", "destination": "/index.html" }]
+  "rewrites": [{ "source": "/((?!api/|media/|fonts/|assets/|mathsynth/).*)", "destination": "/index.html" }]
 }

@@ -7,6 +7,8 @@ import MathSynth from "./pages/MathSynth";
 import Support from "./pages/Support";
 import About from "./pages/About";
 import Download from "./pages/Download";
+import Privacy from "./pages/Privacy";
+import { Analytics } from "@vercel/analytics/react";
 import NotFound from "./pages/NotFound";
 
 // New pages start at the top, unless the link points at a section (#download).
@@ -31,10 +33,12 @@ export default function App() {
           <Route path="/support" element={<Support />} />
           <Route path="/about" element={<About />} />
           <Route path="/download/:slug/:platform" element={<Download />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
+      <Analytics />
     </>
   );
 }

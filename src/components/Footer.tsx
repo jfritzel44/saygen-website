@@ -12,6 +12,7 @@ export default function Footer() {
           <Link to="/about">About</Link>
           <a href={site.instagram.url} target="_blank" rel="noreferrer">Instagram</a>
           <a href={`mailto:${site.contactEmail}`}>Contact</a>
+          <Link to="/privacy">Privacy</Link>
         </nav>
         <p className="fine-print">
           © {new Date().getFullYear()} Saygen. VST is a trademark of Steinberg Media Technologies GmbH.
