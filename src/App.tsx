@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import MathSynth from "./pages/MathSynth";
 import Support from "./pages/Support";
 import About from "./pages/About";
+import Download from "./pages/Download";
 import NotFound from "./pages/NotFound";
 
 // New pages start at the top, unless the link points at a section (#download).
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/instruments/mathsynth" element={<MathSynth />} />
           <Route path="/support" element={<Support />} />
           <Route path="/about" element={<About />} />
+          <Route path="/download/:slug/:platform" element={<Download />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

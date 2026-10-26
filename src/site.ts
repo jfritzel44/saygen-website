@@ -17,6 +17,7 @@ export type Instrument = {
   image: string;
   version: string;
   colour: string;  // its download buttons; the site's chrome stays Saygen silver
+  macNotarized: boolean;  // false: the download page explains Gatekeeper's "Open Anyway"
   downloads: { mac: string; windows: string };
 };
 
@@ -37,6 +38,7 @@ export const mathsynth: Instrument = {
   image: "/media/mathsynth/wheel.png",
   version: "0.1.2",
   colour: "#d64fff",  // the fractal purple it opens with (Weierstrass)
+  macNotarized: false,  // true once the release workflow signs and notarizes
   downloads: releaseDownloads("mathsynth", "MathSynth"),
 };
 

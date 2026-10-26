@@ -1,10 +1,12 @@
 import type { CSSProperties } from "react";
+import { Link } from "react-router-dom";
 import { site, type Instrument } from "../site";
 
 type Platform = "mac" | "windows";
 const platformNames: Record<Platform, string> = { mac: "Mac", windows: "Windows" };
 
-// A download button for each platform, then Donate.
+// A download button for each platform, then Donate. The download buttons go
+// to the download page (pages/Download.tsx), which starts the download.
 export default function DownloadButtons({ instrument }: { instrument: Instrument }) {
   const platforms: Platform[] = ["mac", "windows"];
 
@@ -12,9 +14,9 @@ export default function DownloadButtons({ instrument }: { instrument: Instrument
     <div className="download-buttons" style={{ "--product": instrument.colour } as CSSProperties}>
       <div className="download-row">
         {platforms.map((p) => (
-          <a key={p} className="button download" href={instrument.downloads[p]} download>
+          <Link key={p} className="button download" to={`/download/${instrument.slug}/${p}`}>
             <DownloadIcon /> Download for {platformNames[p]}
-          </a>
+          </Link>
         ))}
         {site.donateUrl && (
           <a className="button donate" href={site.donateUrl} target="_blank" rel="noreferrer">
@@ -35,7 +37,7 @@ function DownloadIcon() {
   );
 }
 
-function HeartIcon() {
+export function HeartIcon() {
   return (
     <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
       <path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20Z" fill="currentColor" />

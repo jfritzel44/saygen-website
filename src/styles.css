@@ -269,6 +269,15 @@ a.featured:hover { border-color: var(--accent); text-decoration: none; transform
 .feature { background: var(--panel); border: 1px solid var(--outline); border-radius: 12px; padding: 24px; }
 .feature p { color: var(--dim); margin: 0; }
 
+/* Download page: the donation ask, then how to install */
+.download-page h1 { font-size: clamp(2rem, 5vw, 3rem); }
+.download-page h2 { margin-top: 1.6em; }
+.donate-card { background: var(--panel); border: 1px solid var(--outline); border-top: 3px solid var(--product, var(--accent)); border-radius: 12px; padding: 28px; margin: 8px 0 12px; }
+.donate-card h2 { margin-top: 0; }
+.donate-card .donate-how { color: var(--dim); font-size: 0.95rem; }
+.install-steps { padding-left: 1.3em; }
+.install-steps li { margin-bottom: 0.6em; }
+
 /* MathSynth's functions, each card in its family's colour (--family) */
 .function-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); gap: 16px; }
 .function-card { background: var(--panel); border: 1px solid var(--outline); border-top: 3px solid var(--family); border-radius: 12px; padding: 20px 22px; }
