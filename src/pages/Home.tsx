@@ -32,8 +32,7 @@ export default function Home() {
             <p className="eyebrow">New instrument · free for Mac and Windows</p>
             <h1>MathSynth</h1>
             <p className="lead">
-              {mathsynth.tagline} Fibonacci, Collatz, Weierstrass and ten more on one big wheel, each one a waveform
-              you can play.
+              Get ready to vibe. This math is hot. Fibonacci is on fire and Euler rips. Download MathSynth today.
             </p>
             <DownloadButtons instrument={mathsynth} />
             <Link className="text-link" to="/instruments/mathsynth">Learn more about MathSynth →</Link>
