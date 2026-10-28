@@ -90,7 +90,7 @@ code { font-size: 0.88em; background: var(--panel); border: 1px solid var(--outl
   align-items: center;
   gap: 32px;
 }
-.logo img { height: 56px; width: auto; }
+.logo img { height: 38px; width: auto; }
 .main-nav { flex: 1; display: flex; align-items: center; justify-content: space-between; }
 .main-nav ul { list-style: none; display: flex; gap: 8px; margin: 0; padding: 0; }
 .main-nav li > a, .main-nav li > button {
@@ -317,7 +317,7 @@ figure { margin: 0; }
 /* Footer */
 .site-footer { border-top: 1px solid var(--outline); background: var(--bg-alt); }
 .footer-inner { max-width: 1100px; margin: 0 auto; padding: 48px 24px; display: grid; gap: 20px; justify-items: center; text-align: center; }
-.footer-logo { height: 36px; width: auto; opacity: 0.85; }
+.footer-logo { height: 26px; width: auto; opacity: 0.85; }
 .site-footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 24px; }
 .site-footer nav a { color: var(--text); }
 .fine-print { color: var(--dim); font-size: 0.78rem; margin: 0; }
@@ -325,7 +325,7 @@ figure { margin: 0; }
 /* Tablet and phone */
 @media (max-width: 860px) {
   .header-inner { padding: 0 var(--gutter); justify-content: space-between; }
-  .logo img { height: 34px; }
+  .logo img { height: 24px; }
   .menu-toggle {
     display: flex;
     flex-direction: column;

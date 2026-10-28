@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-inner">
-        <img src="/media/saygen-logo-chrome.png" alt="Saygen" className="footer-logo" />
+        <img src="/media/sagan-logo-website.png" alt="Saygen" className="footer-logo" />
         <nav aria-label="Footer">
           <Link to="/instruments/mathsynth">MathSynth</Link>
           <Link to="/support">Support</Link>
