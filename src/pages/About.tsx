@@ -1,11 +1,8 @@
-import { useEffect } from "react";
+import { usePageMeta } from "../meta";
 import { site } from "../site";
 
 export default function About() {
-  useEffect(() => {
-    document.title = "About · Saygen";
-    return () => { document.title = "Saygen"; };
-  }, []);
+  usePageMeta("/about");
 
   return (
     <section className="section page">

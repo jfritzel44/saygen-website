@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import DownloadButtons from "../components/DownloadButtons";
 import WaveField from "../components/WaveField";
+import { usePageMeta } from "../meta";
 import { functions, mathsynth, site, upcoming } from "../site";
 
 // The cards that overlap the bottom of the hero.
@@ -23,6 +24,8 @@ const stories = [
 ];
 
 export default function Home() {
+  usePageMeta("/");
+
   return (
     <>
       <section className="home-hero">

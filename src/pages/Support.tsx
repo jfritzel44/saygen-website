@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { usePageMeta } from "../meta";
 import { site } from "../site";
 
 const hostTips = [
@@ -10,10 +10,7 @@ const hostTips = [
 ];
 
 export default function Support() {
-  useEffect(() => {
-    document.title = "Support · Saygen";
-    return () => { document.title = "Saygen"; };
-  }, []);
+  usePageMeta("/support");
 
   return (
     <section className="section page">

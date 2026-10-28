@@ -25,7 +25,11 @@ Deployed on Vercel (project `saygen`) at https://saygenaudio.com (www and saygen
 redirect there, in `vercel.json`), connected to
 [jfritzel44/saygen-website](https://github.com/jfritzel44/saygen-website): every push to `main`
 deploys to production, and other branches get preview links. `vercel.json` sends every page route
-to `index.html` so deep links work.
+to `app.html` (an empty page the browser fills in) so deep links work.
+- SEO: `npm run build` prerenders the pages listed in `src/meta.ts` to real HTML
+  (`scripts/prerender.mjs`), with each page's title, description, link-preview tags and structured
+  data, and writes `sitemap.xml`. A new page needs an entry there to be prerendered and in the
+  sitemap; `public/robots.txt` keeps crawlers off `/download/` and `/api/`.
 - Downloads ask for an email first (`emailGate` in `site.ts`): `api/subscribe.ts` adds it to the
   product's MailerLite group, whose automation emails the links. It needs `MAILERLITE_API_KEY` and
   `MAILERLITE_GROUP_<PRODUCT>` in the Vercel project's environment variables. If MailerLite fails,

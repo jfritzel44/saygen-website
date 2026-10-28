@@ -1,11 +1,8 @@
-import { useEffect } from "react";
+import { usePageMeta } from "../meta";
 import { site } from "../site";
 
 export default function Privacy() {
-  useEffect(() => {
-    document.title = "Privacy · Saygen";
-    return () => { document.title = "Saygen"; };
-  }, []);
+  usePageMeta("/privacy");
 
   return (
     <section className="section page">

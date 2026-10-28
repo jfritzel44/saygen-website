@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /download/
+Disallow: /api/
+
+Sitemap: https://saygenaudio.com/sitemap.xml

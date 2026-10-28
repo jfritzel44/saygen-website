@@ -1,4 +1,5 @@
 import { useEffect, useState, type CSSProperties } from "react";
+import { usePageMeta } from "../meta";
 import DownloadButtons from "../components/DownloadButtons";
 import FormulaBackdrop from "../components/FormulaBackdrop";
 import { families, functions, mathsynth } from "../site";
@@ -64,10 +65,7 @@ function useActiveSection() {
 export default function MathSynth() {
   const active = useActiveSection();
 
-  useEffect(() => {
-    document.title = "MathSynth · Saygen";
-    return () => { document.title = "Saygen"; };
-  }, []);
+  usePageMeta("/instruments/mathsynth");
 
   return (
     <div className="formula-page">
