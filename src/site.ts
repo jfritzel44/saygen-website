@@ -45,7 +45,19 @@ export const mathsynth: Instrument = {
   downloads: releaseDownloads("mathsynth", "MathSynth"),
 };
 
-export const instruments: Instrument[] = [mathsynth];
+export const thevoid: Instrument = {
+  slug: "thevoid",
+  name: "The Void",
+  tagline: "Haunting voices from a loop that feeds on itself.",
+  price: "Free",
+  image: "/media/thevoid/globe.png",
+  version: "0.1.0",
+  colour: "#4dff8f",  // its phosphor green (Loop/Source/UI/Theme.h)
+  macNotarized: false,  // true once the release workflow signs and notarizes
+  downloads: releaseDownloads("thevoid", "TheVoid"),
+};
+
+export const instruments: Instrument[] = [mathsynth, thevoid];
 
 // Shown on the home page as "coming soon".
 export const upcoming: { name: string; kind: string; tagline: string; image: string }[] = [];

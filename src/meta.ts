@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { mathsynth, site } from "./site";
+import { mathsynth, site, thevoid } from "./site";
 
 // Search and link-preview text for each page. scripts/prerender.mjs writes it
 // into each page's HTML at build time (and lists these pages in sitemap.xml);
@@ -45,6 +45,26 @@ export const pages: Record<string, PageMeta> = {
       softwareVersion: mathsynth.version,
       url: `${siteUrl}/instruments/mathsynth`,
       image: `${siteUrl}${defaultImage}`,
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      publisher: { "@type": "Organization", name: site.name, url: siteUrl },
+    },
+  },
+  "/instruments/thevoid": {
+    title: "The Void · free haunting-voices synth plugin (AU, VST3) · Saygen",
+    description:
+      "The Void is a free synthesizer plugin for Mac and Windows: one formula that feeds back into itself, sung through dark vowels and whispered by ghosts. AU, VST3 and standalone.",
+    image: "/media/thevoid/globe.png",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: thevoid.name,
+      description: `${thevoid.tagline} A free synthesizer plugin built on a self-feeding formula.`,
+      applicationCategory: "MultimediaApplication",
+      applicationSubCategory: "Audio plugin (AU, VST3)",
+      operatingSystem: "macOS, Windows",
+      softwareVersion: thevoid.version,
+      url: `${siteUrl}/instruments/thevoid`,
+      image: `${siteUrl}/media/thevoid/globe.png`,
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       publisher: { "@type": "Organization", name: site.name, url: siteUrl },
     },
