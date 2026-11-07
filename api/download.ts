@@ -4,6 +4,11 @@
 //       → { ok: true, email } if that checkout was paid for this product
 //   GET /api/download?product=instantkeys&session_id=cs_...&platform=mac (or windows, for a product sold for it)
 //       → a redirect to the installer
+// Or, for a free copy, a gift code instead of the checkout:
+//   /thanks/instantkeys?code=friends-7k2p  (the page calls this with &code=...)
+// The codes are in GIFT_CODES_<PRODUCT>; take one out to stop it working
+// (changing a variable takes effect at the next deploy).
+//
 // The installers are releases of the product's private GitHub repo; GitHub
 // answers an authorised request for one with a signed link to the file that
 // works for a few minutes, which is where the buyer is sent.
@@ -13,6 +18,7 @@
 //   STRIPE_LINK_<PRODUCT>    the product's Payment Link ID (plink_...), so a
 //                            donation's checkout can't unlock it
 //   GITHUB_RELEASES_TOKEN    fine-grained token, Contents: Read on the private repos
+//   GIFT_CODES_<PRODUCT>     optional: free-copy codes, separated by commas
 
 // files: the installer for each platform the product is sold for.
 type Product = { repo: string; tag: string; files: Partial<Record<"mac" | "windows", string>> };
@@ -26,6 +32,12 @@ const products: Record<string, Product> = {
 };
 
 const sessionPattern = /^cs_(live|test)_[A-Za-z0-9]{10,200}$/;
+const codePattern = /^[A-Za-z0-9-]{6,64}$/;
+
+function isGiftCode(slug: string, code: string) {
+  const codes = (process.env[`GIFT_CODES_${slug.toUpperCase()}`] ?? "").split(",").map((c) => c.trim().toLowerCase());
+  return codePattern.test(code) && codes.includes(code.toLowerCase());
+}
 
 function fail(status: number, error: string) {
   return Response.json({ error }, { status, headers: { "Cache-Control": "no-store" } });
@@ -36,15 +48,26 @@ export async function GET(request: Request): Promise<Response> {
   const slug = params.get("product") ?? "";
   const product = Object.prototype.hasOwnProperty.call(products, slug) ? products[slug] : undefined;
   const session = params.get("session_id") ?? "";
+  const code = params.get("code");
   const platform = params.get("platform");
   const fileName = product && (platform === "mac" || platform === "windows") ? product.files[platform] : undefined;
-  if (!product || !sessionPattern.test(session) || (platform !== null && !fileName)) {
+  if (!product || (code === null && !sessionPattern.test(session)) || (platform !== null && !fileName)) {
     return fail(400, "That isn't a download link.");
+  }
+  const githubToken = process.env.GITHUB_RELEASES_TOKEN;
+
+  if (code !== null) {
+    if (!isGiftCode(slug, code)) return fail(403, "That link isn't working any more.");
+    if (!githubToken) {
+      console.error("download: GITHUB_RELEASES_TOKEN isn't set");
+      return fail(503, "Downloads aren't set up yet. Please email us and we'll send your copy.");
+    }
+    if (platform === null) return Response.json({ ok: true, email: "", gift: true }, { headers: { "Cache-Control": "no-store" } });
+    return installer(product, fileName!, githubToken);
   }
 
   const stripeKey = process.env.STRIPE_SECRET_KEY;
   const link = process.env[`STRIPE_LINK_${slug.toUpperCase()}`];
-  const githubToken = process.env.GITHUB_RELEASES_TOKEN;
   if (!stripeKey || !link || !githubToken) {
     console.error(`download: STRIPE_SECRET_KEY, STRIPE_LINK_${slug.toUpperCase()} or GITHUB_RELEASES_TOKEN isn't set`);
     return fail(503, "Downloads aren't set up yet. Please email us and we'll send your copy.");
@@ -73,7 +96,11 @@ export async function GET(request: Request): Promise<Response> {
     return Response.json({ ok: true, email: checkout.customer_details?.email ?? "" }, { headers: { "Cache-Control": "no-store" } });
   }
 
-  // The file in the private release, then GitHub's short-lived link to it.
+  return installer(product, fileName!, githubToken);
+}
+
+// The file in the private release, then GitHub's short-lived link to it.
+async function installer(product: Product, fileName: string, githubToken: string): Promise<Response> {
   const github = { Authorization: `Bearer ${githubToken}`, "X-GitHub-Api-Version": "2022-11-28" };
   const release = await fetch(`https://api.github.com/repos/${product.repo}/releases/tags/${product.tag}`, {
     headers: { ...github, Accept: "application/vnd.github+json" },
