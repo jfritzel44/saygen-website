@@ -48,7 +48,7 @@ export default function InstantKeys() {
             <a className="text-link" href="#overview">What it does →</a>
           </div>
           <div className="device">
-            <img src={instantkeys.image} alt="InstantKeys: the stage with the camera, a chord name and the lit-up piano, and the options beside it" />
+            <img src="/media/instantkeys/main.png" alt="Saygen InstantKeys: create beautiful piano videos with customizable keyboards, illuminated notes, chords and sheet music" />
           </div>
         </div>
       </section>
@@ -60,13 +60,16 @@ export default function InstantKeys() {
             Play your piano. InstantKeys handles the visuals.
           </p>
           <p className="section-lead">
-            Turn any piano performance, lesson, or tutorial into a professional-looking video—all in a single recording.
+            Turn your piano performance into a professional-looking video—all in a single recording.
           </p>
           <p className="section-lead">
             Show your hands, your face, illuminated piano keys, detected chords, and sheet music together in one beautifully customized frame.
           </p>
           <p className="section-lead">
             No complicated video editing. No green screen. No separate screen recording software.
+          </p>
+          <p className="section-lead">
+            Finalize your video with a built-in editor before publishing. Video and audio is automatically optimized for Instagram or Youtube.
           </p>
           <div className="instantkeys-videos">
             {["Jbr0LngKS6g", "kD2RUZW5K_k", "_Rctx001k0c", "sPQhfzD_dBA"].map((videoId, index) => (

@@ -18,9 +18,10 @@ const defaultImage = "/media/og-mathsynth.png";
 
 export const pages: Record<string, PageMeta> = {
   "/": {
-    title: "Saygen · MathSynth, a free synth plugin that plays math",
+    title: "Saygen · InstantKeys — Create Beautiful Piano Videos in One Take",
     description:
-      "Saygen makes instruments and effects plugins. MathSynth, a synth that plays math (Fibonacci, Collatz, Weierstrass and more), is free for Mac and Windows: AU, VST3 and standalone.",
+      "Create beautiful piano videos in one take with InstantKeys. Show your camera, illuminated piano keys, detected chords and sheet music together in one customized frame.",
+    image: "/media/instantkeys/main.png",
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "Organization",

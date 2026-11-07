@@ -78,7 +78,7 @@ export const instantkeys: Instrument = {
   buyUrl: "https://buy.stripe.com/00w14g2Io2KI2Uq5gZ67S02",  // the InstantKeys Payment Link (Managed Payments)
 };
 
-export const instruments: Instrument[] = [mathsynth, thevoid, instantkeys];
+export const instruments: Instrument[] = [instantkeys, mathsynth, thevoid];
 
 // Shown on the home page as "coming soon".
 export const upcoming: { name: string; kind: string; tagline: string; image: string }[] = [];

@@ -32,16 +32,16 @@ export default function Home() {
         <WaveField />
         <div className="home-hero-inner">
           <div className="home-hero-text">
-            <p className="eyebrow">New instrument · free for Mac and Windows</p>
-            <h1>MathSynth</h1>
+            <p className="eyebrow">For Content Creators, Music Teachers</p>
+            <h1>InstantKeys</h1>
             <p className="lead">
-              Get ready to vibe. This math is hot. 🔥 Fibonacci is on fire and Euler rips. Download MathSynth today.
+              Create Beautiful Piano Videos in One Take. Play your piano. InstantKeys handles the visuals.
             </p>
-            <DownloadButtons instrument={mathsynth} />
-            <Link className="text-link" to="/instruments/mathsynth">Learn more about MathSynth →</Link>
+            <DownloadButtons instrument={instantkeys} />
+            <Link className="text-link" to="/instruments/instantkeys">Learn more about InstantKeys →</Link>
           </div>
           <div className="device small">
-            <video src="/media/mathsynth-1.mp4" poster="/media/mathsynth-1.jpg" autoPlay muted loop playsInline aria-label="MathSynth playing the Fibonacci function" />
+            <img src="/media/instantkeys/main.png" alt="Saygen InstantKeys: create beautiful piano videos with customizable keyboards, illuminated notes, chords and sheet music" />
           </div>
         </div>
       </section>
@@ -74,6 +74,14 @@ export default function Home() {
         <div className="section-inner">
           <h2 className="section-bar">Featured instruments</h2>
           <div className="featured-grid">
+            <Link to="/instruments/instantkeys" className="featured featured-live">
+              <img src={instantkeys.image} alt="The InstantKeys stage: camera, chord name and lit-up piano" loading="lazy" />
+              <div className="featured-text">
+                <span className="tag">For teachers · {instantkeys.price} · new</span>
+                <h3>InstantKeys</h3>
+                <p>{instantkeys.tagline}</p>
+              </div>
+            </Link>
             <Link to="/instruments/mathsynth" className="featured featured-live">
               <img src={mathsynth.image} alt="MathSynth's function wheel" loading="lazy" />
               <div className="featured-text">
@@ -88,14 +96,6 @@ export default function Home() {
                 <span className="tag">Synthesizer · free · new</span>
                 <h3>The Void</h3>
                 <p>{thevoid.tagline}</p>
-              </div>
-            </Link>
-            <Link to="/instruments/instantkeys" className="featured featured-live">
-              <img src={instantkeys.image} alt="The InstantKeys stage: camera, chord name and lit-up piano" loading="lazy" />
-              <div className="featured-text">
-                <span className="tag">For teachers · {instantkeys.price} · new</span>
-                <h3>InstantKeys</h3>
-                <p>{instantkeys.tagline}</p>
               </div>
             </Link>
             {upcoming.map((item) => (
