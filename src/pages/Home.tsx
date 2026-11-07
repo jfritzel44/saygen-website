@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import DownloadButtons from "../components/DownloadButtons";
 import WaveField from "../components/WaveField";
@@ -27,6 +28,38 @@ const stories = [
   },
 ];
 
+// The hero's promo: plays muted and loops (browsers only autoplay muted
+// video); the button turns the sound on and off.
+function HeroVideo() {
+  const video = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+  const toggle = () => {
+    const v = video.current;
+    if (!v) return;
+    v.muted = !muted;
+    if (muted) void v.play().catch(() => {});
+    setMuted(!muted);
+  };
+  return (
+    <div className="device small hero-video">
+      <video
+        ref={video}
+        src="/media/instantkeys/promo.mp4"
+        poster="/media/instantkeys/promo-poster.jpg"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-label="InstantKeys in action: a keyboard player on camera, an electric piano lighting up, falling notes and chord names"
+      />
+      <button type="button" className="sound-toggle" onClick={toggle} aria-pressed={!muted}>
+        {muted ? "🔇 Sound on" : "🔊 Sound off"}
+      </button>
+    </div>
+  );
+}
+
 export default function Home() {
   usePageMeta("/");
 
@@ -45,9 +78,7 @@ export default function Home() {
             <DownloadButtons instrument={instantkeys} />
             <Link className="text-link" to="/instruments/instantkeys">Learn more about InstantKeys →</Link>
           </div>
-          <div className="device small">
-            <img src="/media/instantkeys/main.png" alt="Saygen InstantKeys: create beautiful piano videos with customizable keyboards, illuminated notes, chords and sheet music" />
-          </div>
+          <HeroVideo />
         </div>
       </section>
 
