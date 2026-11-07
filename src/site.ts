@@ -72,10 +72,10 @@ export const instantkeys: Instrument = {
   image: "/media/instantkeys/stage.png",
   version: "1.0.0",
   colour: "#a66bff",  // its purple highlight (KeyCam/Source/UI/Theme.h; InstantKeys was KeyCam)
-  macNotarized: false,  // true once the release workflow signs and notarizes
+  macNotarized: true,  // signed with Developer ID and notarized by the release workflow
   downloads: { mac: "", windows: "" },
   macOnly: true,  // Mac first; the Windows port waits on the KeyCam repo's windows branch until there's demand
-  buyUrl: "",  // the InstantKeys Payment Link, once it's made in Stripe
+  buyUrl: "https://buy.stripe.com/00w14g2Io2KI2Uq5gZ67S02",  // the InstantKeys Payment Link (Managed Payments)
 };
 
 export const instruments: Instrument[] = [mathsynth, thevoid, instantkeys];
