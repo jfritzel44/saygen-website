@@ -1,5 +1,7 @@
 {
   "redirects": [
+    { "source": "/instruments/keycam", "destination": "/instruments/instantkeys", "permanent": true },
+    { "source": "/thanks/keycam", "destination": "/thanks/instantkeys", "permanent": true },
     { "source": "/:path*", "has": [{ "type": "host", "value": "www.saygenaudio.com" }], "destination": "https://saygenaudio.com/:path*", "permanent": true },
     { "source": "/:path*", "has": [{ "type": "host", "value": "saygen.vercel.app" }], "destination": "https://saygenaudio.com/:path*", "permanent": true }
   ],

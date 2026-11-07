@@ -9,7 +9,7 @@ export default function Footer() {
         <nav aria-label="Footer">
           <Link to="/instruments/mathsynth">MathSynth</Link>
           <Link to="/instruments/thevoid">The Void</Link>
-          <Link to="/instruments/keycam">KeyCam</Link>
+          <Link to="/instruments/instantkeys">InstantKeys</Link>
           <Link to="/support">Support</Link>
           <Link to="/about">About</Link>
           <a href={site.instagram.url} target="_blank" rel="noreferrer">Instagram</a>

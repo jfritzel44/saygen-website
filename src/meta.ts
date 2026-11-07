@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { keycam, mathsynth, site, thevoid } from "./site";
+import { instantkeys, mathsynth, site, thevoid } from "./site";
 
 // Search and link-preview text for each page. scripts/prerender.mjs writes it
 // into each page's HTML at build time (and lists these pages in sitemap.xml);
@@ -69,23 +69,23 @@ export const pages: Record<string, PageMeta> = {
       publisher: { "@type": "Organization", name: site.name, url: siteUrl },
     },
   },
-  "/instruments/keycam": {
-    title: "KeyCam · film piano lessons for Reels with the notes lit up · Saygen",
+  "/instruments/instantkeys": {
+    title: "InstantKeys · film piano lessons for Reels with the notes lit up · Saygen",
     description:
-      "KeyCam films you at the piano with an on-screen keyboard that lights up, chord names and sheet music, ready for Instagram Reels, YouTube Shorts and TikTok. For Mac: AU, VST3 and standalone. $19.99.",
-    image: keycam.image,
+      "InstantKeys films you at the piano with an on-screen keyboard that lights up, chord names and sheet music, ready for Instagram Reels, YouTube Shorts and TikTok. For Mac: AU, VST3 and standalone. $5.99.",
+    image: instantkeys.image,
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      name: keycam.name,
-      description: `${keycam.tagline} A camera, piano and notation stage for music teachers' videos.`,
+      name: instantkeys.name,
+      description: `${instantkeys.tagline} A camera, piano and notation stage for music teachers' videos.`,
       applicationCategory: "MultimediaApplication",
       applicationSubCategory: "Audio plugin (AU, VST3) and app",
       operatingSystem: "macOS",
-      softwareVersion: keycam.version,
-      url: `${siteUrl}/instruments/keycam`,
-      image: `${siteUrl}${keycam.image}`,
-      offers: { "@type": "Offer", price: "19.99", priceCurrency: "USD" },
+      softwareVersion: instantkeys.version,
+      url: `${siteUrl}/instruments/instantkeys`,
+      image: `${siteUrl}${instantkeys.image}`,
+      offers: { "@type": "Offer", price: "5.99", priceCurrency: "USD" },
       publisher: { "@type": "Organization", name: site.name, url: siteUrl },
     },
   },

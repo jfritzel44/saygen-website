@@ -64,21 +64,21 @@ export const thevoid: Instrument = {
   downloads: releaseDownloads("thevoid", "TheVoid"),
 };
 
-export const keycam: Instrument = {
-  slug: "keycam",
-  name: "KeyCam",
+export const instantkeys: Instrument = {
+  slug: "instantkeys",
+  name: "InstantKeys",
   tagline: "Film your piano for Reels, with the notes lighting up.",
-  price: "$19.99",
-  image: "/media/keycam/stage.png",
+  price: "$5.99",
+  image: "/media/instantkeys/stage.png",
   version: "1.0.0",
-  colour: "#a66bff",  // its purple highlight (KeyCam/Source/UI/Theme.h)
+  colour: "#a66bff",  // its purple highlight (KeyCam/Source/UI/Theme.h; InstantKeys was KeyCam)
   macNotarized: false,  // true once the release workflow signs and notarizes
   downloads: { mac: "", windows: "" },
-  macOnly: true,  // Mac first; the Windows port waits on KeyCam's windows branch until there's demand
-  buyUrl: "",  // the KeyCam Payment Link, once it's made in Stripe
+  macOnly: true,  // Mac first; the Windows port waits on the KeyCam repo's windows branch until there's demand
+  buyUrl: "",  // the InstantKeys Payment Link, once it's made in Stripe
 };
 
-export const instruments: Instrument[] = [mathsynth, thevoid, keycam];
+export const instruments: Instrument[] = [mathsynth, thevoid, instantkeys];
 
 // Shown on the home page as "coming soon".
 export const upcoming: { name: string; kind: string; tagline: string; image: string }[] = [];

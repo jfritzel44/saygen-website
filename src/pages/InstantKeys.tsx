@@ -1,6 +1,6 @@
 import { usePageMeta } from "../meta";
 import DownloadButtons from "../components/DownloadButtons";
-import { keycam } from "../site";
+import { instantkeys } from "../site";
 
 const features = [
   {
@@ -29,8 +29,8 @@ const features = [
   },
 ];
 
-export default function KeyCam() {
-  usePageMeta("/instruments/keycam");
+export default function InstantKeys() {
+  usePageMeta("/instruments/instantkeys");
 
   return (
     <div>
@@ -38,17 +38,17 @@ export default function KeyCam() {
         <div className="product-hero-inner">
           <div className="product-hero-text">
             <p className="eyebrow">For music teachers · AU · VST3 · Standalone</p>
-            <h1>KeyCam</h1>
+            <h1>InstantKeys</h1>
             <p className="lead">
-              {keycam.tagline} Play, and KeyCam films you with an on-screen piano, chord names and sheet music, ready to
+              {instantkeys.tagline} Play, and InstantKeys films you with an on-screen piano, chord names and sheet music, ready to
               post.
             </p>
-            <DownloadButtons instrument={keycam} />
+            <DownloadButtons instrument={instantkeys} />
             <p className="hero-note requirements">macOS 11 or later, Apple silicon and Intel</p>
             <a className="text-link" href="#overview">What it does →</a>
           </div>
           <div className="device">
-            <img src={keycam.image} alt="KeyCam: the stage with the camera, a chord name and the lit-up piano, and the options beside it" />
+            <img src={instantkeys.image} alt="InstantKeys: the stage with the camera, a chord name and the lit-up piano, and the options beside it" />
           </div>
         </div>
       </section>
@@ -57,7 +57,7 @@ export default function KeyCam() {
         <div className="section-inner">
           <h2>Teach from the keyboard</h2>
           <p className="section-lead">
-            KeyCam turns a lesson into a video people can follow: your hands and your face, the keys you press lit up,
+            InstantKeys turns a lesson into a video people can follow: your hands and your face, the keys you press lit up,
             and the chord written out, all in one frame. No screen recording, no editing app, no green screen.
           </p>
           <div className="feature-grid">
@@ -69,7 +69,7 @@ export default function KeyCam() {
             ))}
           </div>
           <p className="small-print">
-            {keycam.price}, once. KeyCam is for Mac for now. Payment goes through Stripe, and your download link appears
+            {instantkeys.price}, once. InstantKeys is for Mac for now. Payment goes through Stripe, and your download link appears
             right after.
           </p>
         </div>

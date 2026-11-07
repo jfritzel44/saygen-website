@@ -1,8 +1,8 @@
 // Downloads for paid products. Stripe sends a buyer back to
 // /thanks/<product>?session_id=cs_..., and that page calls:
-//   GET /api/download?product=keycam&session_id=cs_...
+//   GET /api/download?product=instantkeys&session_id=cs_...
 //       → { ok: true, email } if that checkout was paid for this product
-//   GET /api/download?product=keycam&session_id=cs_...&platform=mac (or windows, for a product sold for it)
+//   GET /api/download?product=instantkeys&session_id=cs_...&platform=mac (or windows, for a product sold for it)
 //       → a redirect to the installer
 // The installers are releases of the product's private GitHub repo; GitHub
 // answers an authorised request for one with a signed link to the file that
@@ -18,10 +18,10 @@
 type Product = { repo: string; tag: string; files: Partial<Record<"mac" | "windows", string>> };
 
 const products: Record<string, Product> = {
-  keycam: {
-    repo: "jfritzel44/saygen-keycam",
-    tag: "keycam-latest",
-    files: { mac: "Saygen-KeyCam-mac.pkg" },  // Mac only for now
+  instantkeys: {
+    repo: "jfritzel44/saygen-keycam",  // the repo keeps the product's working name
+    tag: "instantkeys-latest",
+    files: { mac: "Saygen-InstantKeys-mac.pkg" },  // Mac only for now
   },
 };
 

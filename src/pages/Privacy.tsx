@@ -19,7 +19,7 @@ export default function Privacy() {
 
         <h2>Purchases</h2>
         <p>
-          Purchases, like KeyCam, are handled by Stripe. Your card details go straight to Stripe; we see your name, your
+          Purchases, like InstantKeys, are handled by Stripe. Your card details go straight to Stripe; we see your name, your
           email, your billing country and what you bought, and use them to send your receipt, answer support questions and
           keep our accounts. Your download page checks with Stripe that the purchase went through, and nothing more.
         </p>

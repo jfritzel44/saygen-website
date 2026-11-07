@@ -103,7 +103,7 @@ export default function Thanks() {
               </div>
             ))}
             <p className="small-print">
-              The first time you turn the camera on, your Mac asks whether “Saygen KeyCam Camera” may use it: allow it.
+              The first time you turn the camera on, your Mac asks whether “Saygen {instrument.name} Camera” may use it: allow it.
               {order.includes("windows") && (
                 <> On Windows, “Let desktop apps access your camera” must be on in Settings → Privacy & security → Camera.</>
               )}{" "}
