@@ -7,12 +7,14 @@ import { functions, instantkeys, mathsynth, site, thevoid, upcoming } from "../s
 // The cards that overlap the bottom of the hero.
 const stories = [
   {
-    title: "Fibonacci sounds hot",
-    date: "October 2026",
-    text: "Check out this video to hear the creator play a synth solo using MathSynth.",
-    image: "/media/mathsynth-1.jpg",
-    imageClass: "scope",
-    to: "/instruments/mathsynth#videos",
+    title: "Create your look with InstantKeys",
+    date: "November 2026",
+    text: "Customize your keyboard, background and falling notes for your next piano video.",
+    images: [
+      { src: "/media/instantkeys/black-ep.png", alt: "InstantKeys with a black electric piano and falling notes" },
+      { src: "/media/instantkeys/blue-ep.png", alt: "InstantKeys with a blue electric piano and glowing green falling notes" },
+    ],
+    to: "/instruments/instantkeys",
   },
   {
     title: "Thirteen functions, thirteen mathematicians",
@@ -57,7 +59,9 @@ export default function Home() {
                     {functions.slice(0, 12).map((fn) => <img key={fn.portrait} src={`/media/portraits/${fn.portrait}.png`} alt="" loading="lazy" />)}
                   </div>
                 ) : (
-                  <img src={story.image} className={story.imageClass} alt="" loading="lazy" />
+                  <div className="story-screenshots">
+                    {story.images?.map((image) => <img key={image.src} src={image.src} alt={image.alt} loading="lazy" />)}
+                  </div>
                 )}
                 <div className="story-text">
                   <h3>{story.title}</h3>
