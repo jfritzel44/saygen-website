@@ -71,7 +71,7 @@ export default function InstantKeys() {
           <p className="section-lead">
             Finalize your video with a built-in editor before publishing. Video and audio is automatically optimized for Instagram or Youtube.
           </p>
-          <div className="instantkeys-videos">
+          <div id="videos" className="instantkeys-videos">
             {["Jbr0LngKS6g", "kD2RUZW5K_k", "_Rctx001k0c", "sPQhfzD_dBA"].map((videoId, index) => (
               <figure key={videoId}>
                 <iframe

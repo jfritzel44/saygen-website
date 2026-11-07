@@ -37,6 +37,7 @@ export default function Home() {
             <p className="lead">
               The fastest way to create piano and keyboard social media content. Use your keyboard and connect MIDI and audio. Create awesome visuals and get videos optimized for Instagram and YouTube.
             </p>
+            <p><Link className="text-link" to="/instruments/instantkeys#videos">Click here to see videos created with InstantKeys</Link></p>
             <DownloadButtons instrument={instantkeys} />
             <Link className="text-link" to="/instruments/instantkeys">Learn more about InstantKeys →</Link>
           </div>
