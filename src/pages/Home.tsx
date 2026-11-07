@@ -72,12 +72,12 @@ export default function Home() {
 
       <section className="section">
         <div className="section-inner">
-          <h2 className="section-bar">Featured instruments</h2>
+          <h2 className="section-bar">Featured Products</h2>
           <div className="featured-grid">
             <Link to="/instruments/instantkeys" className="featured featured-live">
               <img src={instantkeys.image} alt="The InstantKeys stage: camera, chord name and lit-up piano" loading="lazy" />
               <div className="featured-text">
-                <span className="tag">For teachers · {instantkeys.price} · new</span>
+                <span className="tag">For content creators · {instantkeys.price} · new</span>
                 <h3>InstantKeys</h3>
                 <p>{instantkeys.tagline}</p>
               </div>
