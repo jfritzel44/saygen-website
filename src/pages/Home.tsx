@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import DownloadButtons from "../components/DownloadButtons";
 import WaveField from "../components/WaveField";
 import { usePageMeta } from "../meta";
-import { functions, instantkeys, mathsynth, site, thevoid, upcoming } from "../site";
+import { instantkeys, mathsynth, site, thevoid, upcoming } from "../site";
 
 // The cards that overlap the bottom of the hero.
 const stories = [
@@ -17,11 +17,13 @@ const stories = [
     to: "/instruments/instantkeys",
   },
   {
-    title: "Thirteen functions, thirteen mathematicians",
-    date: "October 2026",
-    text: "Fibonacci, Collatz, Gödel, Erdős and more on one wheel, each with its inventor's portrait.",
-    portraits: true,
-    to: "/instruments/mathsynth#functions",
+    title: "Save your recordings in one place",
+    date: "November 2026",
+    text: "Browse and play your recordings, or open the videos folder directly from InstantKeys.",
+    images: [
+      { src: "/media/instantkeys/recordings.png", alt: "InstantKeys Recordings tab with saved videos and playback controls" },
+    ],
+    to: "/instruments/instantkeys",
   },
 ];
 
@@ -54,15 +56,9 @@ export default function Home() {
           {stories.map((story) => {
             const body = (
               <>
-                {story.portraits ? (
-                  <div className="portrait-mosaic" aria-hidden="true">
-                    {functions.slice(0, 12).map((fn) => <img key={fn.portrait} src={`/media/portraits/${fn.portrait}.png`} alt="" loading="lazy" />)}
-                  </div>
-                ) : (
-                  <div className="story-screenshots">
-                    {story.images?.map((image) => <img key={image.src} src={image.src} alt={image.alt} loading="lazy" />)}
-                  </div>
-                )}
+                <div className={`story-screenshots${story.images.length === 1 ? " story-screenshots-single" : ""}`}>
+                  {story.images.map((image) => <img key={image.src} src={image.src} alt={image.alt} loading="lazy" />)}
+                </div>
                 <div className="story-text">
                   <h3>{story.title}</h3>
                   <p className="story-date">{story.date}</p>
