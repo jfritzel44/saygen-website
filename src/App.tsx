@@ -5,6 +5,8 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import MathSynth from "./pages/MathSynth";
 import TheVoid from "./pages/TheVoid";
+import KeyCam from "./pages/KeyCam";
+import Thanks from "./pages/Thanks";
 import Support from "./pages/Support";
 import About from "./pages/About";
 import Download from "./pages/Download";
@@ -32,6 +34,8 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/instruments/mathsynth" element={<MathSynth />} />
           <Route path="/instruments/thevoid" element={<TheVoid />} />
+          <Route path="/instruments/keycam" element={<KeyCam />} />
+          <Route path="/thanks/:slug" element={<Thanks />} />
           <Route path="/support" element={<Support />} />
           <Route path="/about" element={<About />} />
           <Route path="/download/:slug/:platform" element={<Download />} />

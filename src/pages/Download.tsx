@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type CSSProperties, type FormEvent, type ReactNode } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import { HeartIcon } from "../components/DownloadButtons";
+import InstallSteps from "../components/InstallSteps";
 import { instruments, site, type Instrument } from "../site";
 import NotFound from "./NotFound";
 
@@ -17,6 +18,8 @@ export default function Download() {
   const { slug, platform } = useParams();
   const instrument = instruments.find((i) => i.slug === slug);
   if (!instrument || (platform !== "mac" && platform !== "windows")) return <NotFound />;
+  // Paid products are bought on their page; the downloads come after (pages/Thanks.tsx).
+  if (instrument.buyUrl !== undefined) return <Navigate to={`/instruments/${instrument.slug}`} replace />;
   // Keyed, so switching platform starts afresh (and downloads again).
   return <DownloadPage key={`${slug}/${platform}`} instrument={instrument} platform={platform} />;
 }
@@ -114,28 +117,7 @@ function DownloadPage({ instrument, platform }: { instrument: Instrument; platfo
       <DonateCard instrument={instrument} />
 
       <h2>Installing</h2>
-      {platform === "mac" ? (
-        <ol className="install-steps">
-          <li>Open <code>{installerName(url)}</code> from your Downloads folder.</li>
-          {!instrument.macNotarized && (
-            <li>
-              If macOS says it “could not verify” the installer, click <strong>Done</strong>, then go to{" "}
-              <strong>System Settings → Privacy & Security</strong>, scroll down and click <strong>Open Anyway</strong>.
-            </li>
-          )}
-          <li>Follow the steps. It installs the AU, the VST3 and the standalone app; untick any you don't want.</li>
-          <li>Restart your DAW and look for <strong>Saygen → Saygen {instrument.name}</strong>.</li>
-        </ol>
-      ) : (
-        <ol className="install-steps">
-          <li>Run <code>{installerName(url)}</code> from your Downloads folder.</li>
-          <li>
-            If Windows says it “protected your PC”, click <strong>More info</strong>, then <strong>Run anyway</strong>.
-          </li>
-          <li>Follow the steps. It installs the VST3 and the standalone app.</li>
-          <li>Rescan plug-ins in your DAW and look for <strong>Saygen {instrument.name}</strong>.</li>
-        </ol>
-      )}
+      <InstallSteps instrument={instrument} platform={platform} file={installerName(url)} />
       <p className="small-print">
         Can't find it in your DAW? See <Link to="/support">Support</Link> for each host. Need the {platform === "mac" ? "Windows" : "Mac"} version?{" "}
         <Link to={`/download/${instrument.slug}/${platform === "mac" ? "windows" : "mac"}`}>Download for {platform === "mac" ? "Windows" : "Mac"}</Link>.

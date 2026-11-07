@@ -22,6 +22,12 @@ export type Instrument = {
   colour: string;  // its download buttons; the site's chrome stays Saygen silver
   macNotarized: boolean;  // false: the download page explains Gatekeeper's "Open Anyway"
   downloads: { mac: string; windows: string };
+  // Paid products: the Stripe Payment Link ("" shows "Coming soon" instead).
+  // Its confirmation page must redirect to
+  //   https://saygenaudio.com/thanks/<slug>?session_id={CHECKOUT_SESSION_ID}
+  // where api/download.ts checks the payment and hands out the installers
+  // (downloads above are unused: the files are in a private repo).
+  buyUrl?: string;
 };
 
 // The newest installers, which MathSynth/.github/workflows/release.yml keeps
@@ -57,7 +63,20 @@ export const thevoid: Instrument = {
   downloads: releaseDownloads("thevoid", "TheVoid"),
 };
 
-export const instruments: Instrument[] = [mathsynth, thevoid];
+export const keycam: Instrument = {
+  slug: "keycam",
+  name: "KeyCam",
+  tagline: "Film your piano for Reels, with the notes lighting up.",
+  price: "$19.99",
+  image: "/media/keycam/stage.png",
+  version: "1.0.0",
+  colour: "#a66bff",  // its purple highlight (KeyCam/Source/UI/Theme.h)
+  macNotarized: false,  // true once the release workflow signs and notarizes
+  downloads: { mac: "", windows: "" },
+  buyUrl: "",  // the KeyCam Payment Link, once it's made in Stripe
+};
+
+export const instruments: Instrument[] = [mathsynth, thevoid, keycam];
 
 // Shown on the home page as "coming soon".
 export const upcoming: { name: string; kind: string; tagline: string; image: string }[] = [];

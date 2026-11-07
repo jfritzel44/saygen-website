@@ -63,6 +63,7 @@ code { font-size: 0.88em; background: var(--panel); border: 1px solid var(--outl
 /* Each product's own colour (Instrument.colour, set as --product by DownloadButtons); the site's chrome stays silver */
 .button.download { background: var(--product, var(--accent)); border-color: var(--product, var(--accent)); }
 .button.download:hover { box-shadow: 0 6px 24px color-mix(in srgb, var(--product, var(--accent)) 30%, transparent); }
+.button.download[aria-disabled="true"] { opacity: 0.55; cursor: default; box-shadow: none; }
 .button.donate { background: transparent; color: var(--number); border-color: var(--number); }
 .button.donate:hover { background: rgb(255 179 64 / 10%); box-shadow: 0 6px 24px rgb(255 179 64 / 25%); }
 .button svg { vertical-align: -3px; margin-right: 4px; }

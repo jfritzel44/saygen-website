@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import DownloadButtons from "../components/DownloadButtons";
 import WaveField from "../components/WaveField";
 import { usePageMeta } from "../meta";
-import { functions, mathsynth, site, thevoid, upcoming } from "../site";
+import { functions, keycam, mathsynth, site, thevoid, upcoming } from "../site";
 
 // The cards that overlap the bottom of the hero.
 const stories = [
@@ -88,6 +88,14 @@ export default function Home() {
                 <span className="tag">Synthesizer · free · new</span>
                 <h3>The Void</h3>
                 <p>{thevoid.tagline}</p>
+              </div>
+            </Link>
+            <Link to="/instruments/keycam" className="featured featured-live">
+              <img src={keycam.image} alt="KeyCam's stage: camera, chord name and lit-up piano" loading="lazy" />
+              <div className="featured-text">
+                <span className="tag">For teachers · {keycam.price} · new</span>
+                <h3>KeyCam</h3>
+                <p>{keycam.tagline}</p>
               </div>
             </Link>
             {upcoming.map((item) => (

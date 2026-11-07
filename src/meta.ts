@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { mathsynth, site, thevoid } from "./site";
+import { keycam, mathsynth, site, thevoid } from "./site";
 
 // Search and link-preview text for each page. scripts/prerender.mjs writes it
 // into each page's HTML at build time (and lists these pages in sitemap.xml);
@@ -69,6 +69,26 @@ export const pages: Record<string, PageMeta> = {
       publisher: { "@type": "Organization", name: site.name, url: siteUrl },
     },
   },
+  "/instruments/keycam": {
+    title: "KeyCam · film piano lessons for Reels with the notes lit up · Saygen",
+    description:
+      "KeyCam films you at the piano with an on-screen keyboard that lights up, chord names and sheet music, ready for Instagram Reels, YouTube Shorts and TikTok. Mac and Windows, AU, VST3 and standalone. $19.99.",
+    image: keycam.image,
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: keycam.name,
+      description: `${keycam.tagline} A camera, piano and notation stage for music teachers' videos.`,
+      applicationCategory: "MultimediaApplication",
+      applicationSubCategory: "Audio plugin (AU, VST3) and app",
+      operatingSystem: "macOS, Windows",
+      softwareVersion: keycam.version,
+      url: `${siteUrl}/instruments/keycam`,
+      image: `${siteUrl}${keycam.image}`,
+      offers: { "@type": "Offer", price: "19.99", priceCurrency: "USD" },
+      publisher: { "@type": "Organization", name: site.name, url: siteUrl },
+    },
+  },
   "/support": {
     title: "Support · installing MathSynth in Logic, Ableton, FL Studio · Saygen",
     description:
@@ -80,7 +100,7 @@ export const pages: Record<string, PageMeta> = {
   },
   "/privacy": {
     title: "Privacy · Saygen",
-    description: "What Saygen does with your email address, donations and visits.",
+    description: "What Saygen does with your email address, purchases, donations and visits.",
   },
 };
 

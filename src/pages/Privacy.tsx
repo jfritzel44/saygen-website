@@ -8,13 +8,20 @@ export default function Privacy() {
     <section className="section page">
       <div className="section-inner narrow">
         <h1>Privacy</h1>
-        <p>Last updated October 2026.</p>
+        <p>Last updated November 2026.</p>
 
         <h2>Your email</h2>
         <p>
           When you download an instrument, we ask for your email address. We use it to send you the download links and
           occasional news about new Saygen instruments. Every email has an unsubscribe link, and unsubscribing removes you
           from future emails. The list is kept with our email service, MailerLite, and we never sell or share it.
+        </p>
+
+        <h2>Purchases</h2>
+        <p>
+          Purchases, like KeyCam, are handled by Stripe. Your card details go straight to Stripe; we see your name, your
+          email, your billing country and what you bought, and use them to send your receipt, answer support questions and
+          keep our accounts. Your download page checks with Stripe that the purchase went through, and nothing more.
         </p>
 
         <h2>Donations</h2>
