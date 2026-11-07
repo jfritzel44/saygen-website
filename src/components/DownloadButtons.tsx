@@ -10,7 +10,7 @@ const platformNames: Record<Platform, string> = { mac: "Mac", windows: "Windows"
 // A paid product has one Buy button instead, to its Stripe Payment Link
 // (Stripe then sends the buyer to pages/Thanks.tsx for the downloads).
 export default function DownloadButtons({ instrument }: { instrument: Instrument }) {
-  const platforms: Platform[] = ["mac", "windows"];
+  const platforms: Platform[] = instrument.macOnly ? ["mac"] : ["mac", "windows"];
 
   if (instrument.buyUrl !== undefined) {
     return (
@@ -24,7 +24,7 @@ export default function DownloadButtons({ instrument }: { instrument: Instrument
             <span className="button download" aria-disabled="true">Coming soon · {instrument.price}</span>
           )}
         </div>
-        <p className="hero-note">One-time purchase · Mac and Windows · version {instrument.version}</p>
+        <p className="hero-note">One-time purchase · {instrument.macOnly ? "Mac" : "Mac and Windows"} · version {instrument.version}</p>
       </div>
     );
   }

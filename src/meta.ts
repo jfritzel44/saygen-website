@@ -72,7 +72,7 @@ export const pages: Record<string, PageMeta> = {
   "/instruments/keycam": {
     title: "KeyCam · film piano lessons for Reels with the notes lit up · Saygen",
     description:
-      "KeyCam films you at the piano with an on-screen keyboard that lights up, chord names and sheet music, ready for Instagram Reels, YouTube Shorts and TikTok. Mac and Windows, AU, VST3 and standalone. $19.99.",
+      "KeyCam films you at the piano with an on-screen keyboard that lights up, chord names and sheet music, ready for Instagram Reels, YouTube Shorts and TikTok. For Mac: AU, VST3 and standalone. $19.99.",
     image: keycam.image,
     jsonLd: {
       "@context": "https://schema.org",
@@ -81,7 +81,7 @@ export const pages: Record<string, PageMeta> = {
       description: `${keycam.tagline} A camera, piano and notation stage for music teachers' videos.`,
       applicationCategory: "MultimediaApplication",
       applicationSubCategory: "Audio plugin (AU, VST3) and app",
-      operatingSystem: "macOS, Windows",
+      operatingSystem: "macOS",
       softwareVersion: keycam.version,
       url: `${siteUrl}/instruments/keycam`,
       image: `${siteUrl}${keycam.image}`,

@@ -22,6 +22,7 @@ export type Instrument = {
   colour: string;  // its download buttons; the site's chrome stays Saygen silver
   macNotarized: boolean;  // false: the download page explains Gatekeeper's "Open Anyway"
   downloads: { mac: string; windows: string };
+  macOnly?: boolean;  // no Windows version (yet): only Mac is offered or mentioned
   // Paid products: the Stripe Payment Link ("" shows "Coming soon" instead).
   // Its confirmation page must redirect to
   //   https://saygenaudio.com/thanks/<slug>?session_id={CHECKOUT_SESSION_ID}
@@ -73,6 +74,7 @@ export const keycam: Instrument = {
   colour: "#a66bff",  // its purple highlight (KeyCam/Source/UI/Theme.h)
   macNotarized: false,  // true once the release workflow signs and notarizes
   downloads: { mac: "", windows: "" },
+  macOnly: true,  // Mac first; the Windows port waits on KeyCam's windows branch until there's demand
   buyUrl: "",  // the KeyCam Payment Link, once it's made in Stripe
 };
 

@@ -2,7 +2,7 @@
 // /thanks/<product>?session_id=cs_..., and that page calls:
 //   GET /api/download?product=keycam&session_id=cs_...
 //       → { ok: true, email } if that checkout was paid for this product
-//   GET /api/download?product=keycam&session_id=cs_...&platform=mac|windows
+//   GET /api/download?product=keycam&session_id=cs_...&platform=mac (or windows, for a product sold for it)
 //       → a redirect to the installer
 // The installers are releases of the product's private GitHub repo; GitHub
 // answers an authorised request for one with a signed link to the file that
@@ -14,13 +14,14 @@
 //                            donation's checkout can't unlock it
 //   GITHUB_RELEASES_TOKEN    fine-grained token, Contents: Read on the private repos
 
-type Product = { repo: string; tag: string; files: Record<"mac" | "windows", string> };
+// files: the installer for each platform the product is sold for.
+type Product = { repo: string; tag: string; files: Partial<Record<"mac" | "windows", string>> };
 
 const products: Record<string, Product> = {
   keycam: {
     repo: "jfritzel44/saygen-keycam",
     tag: "keycam-latest",
-    files: { mac: "Saygen-KeyCam-mac.pkg", windows: "Saygen-KeyCam-windows.exe" },
+    files: { mac: "Saygen-KeyCam-mac.pkg" },  // Mac only for now
   },
 };
 
@@ -36,7 +37,8 @@ export async function GET(request: Request): Promise<Response> {
   const product = Object.prototype.hasOwnProperty.call(products, slug) ? products[slug] : undefined;
   const session = params.get("session_id") ?? "";
   const platform = params.get("platform");
-  if (!product || !sessionPattern.test(session) || (platform !== null && platform !== "mac" && platform !== "windows")) {
+  const fileName = product && (platform === "mac" || platform === "windows") ? product.files[platform] : undefined;
+  if (!product || !sessionPattern.test(session) || (platform !== null && !fileName)) {
     return fail(400, "That isn't a download link.");
   }
 
@@ -81,9 +83,9 @@ export async function GET(request: Request): Promise<Response> {
     return fail(502, "The download isn't available just now. Please email us and we'll send your copy.");
   }
   const assets = ((await release.json()) as { assets?: { name: string; url: string }[] }).assets ?? [];
-  const asset = assets.find((a) => a.name === product.files[platform]);
+  const asset = assets.find((a) => a.name === fileName);
   if (!asset) {
-    console.error(`download: ${product.files[platform]} isn't in ${product.repo}@${product.tag}`);
+    console.error(`download: ${fileName} isn't in ${product.repo}@${product.tag}`);
     return fail(502, "The download isn't available just now. Please email us and we'll send your copy.");
   }
   const file = await fetch(asset.url, { headers: { ...github, Accept: "application/octet-stream" }, redirect: "manual" });

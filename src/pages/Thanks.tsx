@@ -47,7 +47,7 @@ export default function Thanks() {
   const product = instrument.name.replace(/\s+/g, "");
   const link = (p: Platform) => `/api/download?product=${instrument.slug}&session_id=${encodeURIComponent(session)}&platform=${p}`;
   const mine: Platform = typeof navigator !== "undefined" && /Windows/i.test(navigator.userAgent) ? "windows" : "mac";
-  const order: Platform[] = mine === "mac" ? ["mac", "windows"] : ["windows", "mac"];
+  const order: Platform[] = instrument.macOnly ? ["mac"] : mine === "mac" ? ["mac", "windows"] : ["windows", "mac"];
   const help = (
     <a href={`mailto:${site.contactEmail}?subject=${encodeURIComponent(`${instrument.name} download`)}`}>{site.contactEmail}</a>
   );
@@ -77,12 +77,14 @@ export default function Thanks() {
           <>
             <h1>Thank you for buying {instrument.name}!</h1>
             <p className="section-lead">
-              Download it for your computer below. Your purchase includes both versions.
+              {instrument.macOnly
+                ? "Download it for your Mac below."
+                : "Download it for your computer below. Your purchase includes both versions."}
             </p>
             <div className="download-buttons">
               <div className="download-row">
                 {order.map((p) => (
-                  <a key={p} className={p === mine ? "button download" : "button ghost"} href={link(p)}>
+                  <a key={p} className={p === order[0] ? "button download" : "button ghost"} href={link(p)}>
                     Download for {platformNames[p]}
                   </a>
                 ))}
@@ -101,9 +103,11 @@ export default function Thanks() {
               </div>
             ))}
             <p className="small-print">
-              The first time you turn the camera on, your computer asks whether {instrument.name} may use it: allow it. On a
-              Mac it asks for “Saygen KeyCam Camera”. On Windows, “Let desktop apps access your camera” must be on in
-              Settings → Privacy & security → Camera. Can't find {instrument.name} in your DAW? See{" "}
+              The first time you turn the camera on, your Mac asks whether “Saygen KeyCam Camera” may use it: allow it.
+              {order.includes("windows") && (
+                <> On Windows, “Let desktop apps access your camera” must be on in Settings → Privacy & security → Camera.</>
+              )}{" "}
+              Can't find {instrument.name} in your DAW? See{" "}
               <Link to="/support">Support</Link> for each host.
             </p>
           </>

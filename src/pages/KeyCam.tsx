@@ -44,7 +44,7 @@ export default function KeyCam() {
               post.
             </p>
             <DownloadButtons instrument={keycam} />
-            <p className="hero-note requirements">macOS 11 or later, Apple silicon and Intel · Windows 10 or 11, 64-bit</p>
+            <p className="hero-note requirements">macOS 11 or later, Apple silicon and Intel</p>
             <a className="text-link" href="#overview">What it does →</a>
           </div>
           <div className="device">
@@ -69,8 +69,8 @@ export default function KeyCam() {
             ))}
           </div>
           <p className="small-print">
-            {keycam.price}, once, for both the Mac and Windows versions. Payment goes through Stripe, and your download
-            links appear right after.
+            {keycam.price}, once. KeyCam is for Mac for now. Payment goes through Stripe, and your download link appears
+            right after.
           </p>
         </div>
       </section>
