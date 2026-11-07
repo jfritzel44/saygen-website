@@ -35,7 +35,7 @@ export default function Home() {
             <p className="eyebrow">For Content Creators, Music Teachers</p>
             <h1>InstantKeys</h1>
             <p className="lead">
-              Create Beautiful Piano Videos in One Take. Play your piano. InstantKeys handles the visuals.
+              Create Beautiful Piano Videos in One Take. Use your keyboard with Midi and Audio. InstantKeys handles the visuals.
             </p>
             <DownloadButtons instrument={instantkeys} />
             <Link className="text-link" to="/instruments/instantkeys">Learn more about InstantKeys →</Link>
