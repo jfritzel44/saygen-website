@@ -302,6 +302,8 @@ figure { margin: 0; }
 
 .video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); justify-content: center; gap: 40px; }
 .video-grid video { width: 100%; aspect-ratio: 556 / 990; object-fit: cover; border-radius: 14px; border: 1px solid var(--outline); background: var(--panel); }
+.instantkeys-videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 340px)); justify-content: center; gap: 28px; margin: 36px 0; }
+.instantkeys-videos iframe { display: block; width: 100%; aspect-ratio: 9 / 16; border: 1px solid var(--outline); border-radius: 14px; background: var(--panel); }
 
 .credits { padding: 40px 0 48px; text-align: center; }
 .requirements { margin: -4px 0 18px; }

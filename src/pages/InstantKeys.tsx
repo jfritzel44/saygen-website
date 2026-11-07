@@ -37,7 +37,7 @@ export default function InstantKeys() {
       <section id="download" className="product-hero">
         <div className="product-hero-inner">
           <div className="product-hero-text">
-            <p className="eyebrow">For music teachers · AU · VST3 · Standalone</p>
+            <p className="eyebrow">For Content Creators, Music Teachers</p>
             <h1>InstantKeys</h1>
             <p className="lead">
               {instantkeys.tagline} Play, and InstantKeys films you with an on-screen piano, chord names and sheet music, ready to
@@ -55,11 +55,38 @@ export default function InstantKeys() {
 
       <section id="overview" className="section">
         <div className="section-inner">
-          <h2>Teach from the keyboard</h2>
+          <h2>Create Beautiful Piano Videos in One Take</h2>
           <p className="section-lead">
-            InstantKeys turns a lesson into a video people can follow: your hands and your face, the keys you press lit up,
-            and the chord written out, all in one frame. No screen recording, no editing app, no green screen.
+            Play your piano. InstantKeys handles the visuals.
           </p>
+          <p className="section-lead">
+            Turn any piano performance, lesson, or tutorial into a professional-looking video—all in a single recording.
+          </p>
+          <p className="section-lead">
+            Show your hands, your face, illuminated piano keys, detected chords, and sheet music together in one beautifully customized frame.
+          </p>
+          <p className="section-lead">
+            No complicated video editing. No green screen. No separate screen recording software.
+          </p>
+          <div className="instantkeys-videos">
+            {["Jbr0LngKS6g", "kD2RUZW5K_k", "_Rctx001k0c", "sPQhfzD_dBA"].map((videoId, index) => (
+              <figure key={videoId}>
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${videoId}`}
+                  title={`InstantKeys video ${index + 1}`}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+                <figcaption>
+                  <a className="text-link" href={`https://www.youtube.com/shorts/${videoId}`} target="_blank" rel="noopener noreferrer">
+                    Watch on YouTube →
+                  </a>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
           <div className="feature-grid">
             {features.map((f) => (
               <article key={f.title} className="feature">

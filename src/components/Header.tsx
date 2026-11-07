@@ -41,7 +41,7 @@ export default function Header() {
           <ul>
             <li ref={dropdown} className={instrumentsOpen ? "has-dropdown open" : "has-dropdown"}>
               <button aria-expanded={instrumentsOpen} onClick={() => setInstrumentsOpen(!instrumentsOpen)}>
-                Instruments <span className="caret" aria-hidden="true" />
+                Products <span className="caret" aria-hidden="true" />
               </button>
               <div className="dropdown">
                 {instruments.map((instrument) => (
@@ -50,7 +50,7 @@ export default function Header() {
                     <span>
                       <strong>{instrument.name}</strong>
                       <small>{instrument.tagline}</small>
-                      <em>Free</em>
+                      <em>{instrument.price}</em>
                     </span>
                   </Link>
                 ))}
