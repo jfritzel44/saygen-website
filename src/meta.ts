@@ -73,7 +73,7 @@ export const pages: Record<string, PageMeta> = {
   "/instruments/instantkeys": {
     title: "InstantKeys · film piano lessons for Reels with the notes lit up · Saygen",
     description:
-      "InstantKeys films you at the piano with an on-screen keyboard that lights up, chord names and sheet music, ready for Instagram Reels, YouTube Shorts and TikTok. For Mac: AU, VST3 and standalone. $5.99.",
+      "InstantKeys films you at the piano with an on-screen keyboard that lights up, chord names and sheet music, ready for Instagram Reels, YouTube Shorts and TikTok. For Mac: AU, VST3 and standalone. $9.99.",
     image: instantkeys.image,
     jsonLd: {
       "@context": "https://schema.org",
@@ -86,7 +86,7 @@ export const pages: Record<string, PageMeta> = {
       softwareVersion: instantkeys.version,
       url: `${siteUrl}/instruments/instantkeys`,
       image: `${siteUrl}${instantkeys.image}`,
-      offers: { "@type": "Offer", price: "5.99", priceCurrency: "USD" },
+      offers: { "@type": "Offer", price: "9.99", priceCurrency: "USD" },
       publisher: { "@type": "Organization", name: site.name, url: siteUrl },
     },
   },

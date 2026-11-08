@@ -15,7 +15,8 @@
 //
 // Environment variables (Vercel project settings):
 //   STRIPE_SECRET_KEY        a restricted key with Checkout Sessions: Read is enough
-//   STRIPE_LINK_<PRODUCT>    the product's Payment Link ID (plink_...), so a
+//   STRIPE_LINK_<PRODUCT>    the product's Payment Link IDs (plink_...), separated by
+//                            commas (old links stay valid for earlier buyers), so a
 //                            donation's checkout can't unlock it
 //   GITHUB_RELEASES_TOKEN    fine-grained token, Contents: Read on the private repos
 //   GIFT_CODES_<PRODUCT>     optional: free-copy codes, separated by commas
@@ -67,8 +68,8 @@ export async function GET(request: Request): Promise<Response> {
   }
 
   const stripeKey = process.env.STRIPE_SECRET_KEY;
-  const link = process.env[`STRIPE_LINK_${slug.toUpperCase()}`];
-  if (!stripeKey || !link || !githubToken) {
+  const links = (process.env[`STRIPE_LINK_${slug.toUpperCase()}`] ?? "").split(",").map((l) => l.trim()).filter(Boolean);
+  if (!stripeKey || links.length === 0 || !githubToken) {
     console.error(`download: STRIPE_SECRET_KEY, STRIPE_LINK_${slug.toUpperCase()} or GITHUB_RELEASES_TOKEN isn't set`);
     return fail(503, "Downloads aren't set up yet. Please email us and we'll send your copy.");
   }
@@ -89,7 +90,7 @@ export async function GET(request: Request): Promise<Response> {
     customer_details?: { email?: string | null } | null;
   };
   const paid = checkout.status === "complete" && (checkout.payment_status === "paid" || checkout.payment_status === "no_payment_required");
-  if (checkout.payment_link !== link) return fail(403, "That purchase isn't for this product.");
+  if (!checkout.payment_link || !links.includes(checkout.payment_link)) return fail(403, "That purchase isn't for this product.");
   if (!paid) return fail(402, "That payment hasn't gone through yet. Refresh this page in a minute.");
 
   if (platform === null) {

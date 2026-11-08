@@ -68,14 +68,14 @@ export const instantkeys: Instrument = {
   slug: "instantkeys",
   name: "InstantKeys",
   tagline: "Film your piano for Reels, with the notes lighting up.",
-  price: "$5.99",
+  price: "$9.99",
   image: "/media/instantkeys/stage.png",
   version: "1.0.4",
   colour: "#a66bff",  // its purple highlight (KeyCam/Source/UI/Theme.h; InstantKeys was KeyCam)
   macNotarized: true,  // signed with Developer ID and notarized by the release workflow
   downloads: { mac: "", windows: "" },
   macOnly: true,  // Mac first; the Windows port waits on the KeyCam repo's windows branch until there's demand
-  buyUrl: "https://buy.stripe.com/00w14g2Io2KI2Uq5gZ67S02",  // the InstantKeys Payment Link (Managed Payments)
+  buyUrl: "https://buy.stripe.com/3cI3co2Io0CA2Uq38R67S03",  // the InstantKeys Payment Link (Managed Payments)
 };
 
 export const instruments: Instrument[] = [instantkeys, mathsynth, thevoid];
