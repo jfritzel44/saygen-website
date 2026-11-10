@@ -70,7 +70,7 @@ export const instantkeys: Instrument = {
   tagline: "Film your piano for Reels, with the notes lighting up.",
   price: "$9.99",
   image: "/media/instantkeys/stage.png",
-  version: "1.0.4",
+  version: "1.0.5",
   colour: "#a66bff",  // its purple highlight (KeyCam/Source/UI/Theme.h; InstantKeys was KeyCam)
   macNotarized: true,  // signed with Developer ID and notarized by the release workflow
   downloads: { mac: "", windows: "" },
