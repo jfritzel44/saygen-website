@@ -39,7 +39,6 @@ const features = [
 ];
 
 const videos = [
-  { title: "Fibonacci sounds hot", src: "/media/mathsynth-1.mp4", poster: "/media/mathsynth-1.jpg" },
   { title: "Whose math vibes the hardest? Gaussian", src: "/media/mathsynth-2.mp4", poster: "/media/mathsynth-2.jpg" },
 ];
 
